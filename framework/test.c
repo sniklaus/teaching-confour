@@ -194,10 +194,10 @@ bool test_moveGreedy() {
 			}
 		} while (true);
 		
-		if (four_winner() == 'W') {
+		if (four_winner() == 'X') {
 			intWon += 1;
 			
-		} else if (four_winner() == 'B') {
+		} else if (four_winner() == 'O') {
 			intLost += 1;
 			
 		}
@@ -220,10 +220,10 @@ bool test_moveGreedy() {
 			}
 		} while (true);
 		
-		if (four_winner() == 'B') {
+		if (four_winner() == 'O') {
 			intWon += 1;
 			
-		} else if (four_winner() == 'W') {
+		} else if (four_winner() == 'X') {
 			intLost += 1;
 			
 		}
@@ -263,10 +263,10 @@ bool test_moveNegamax() {
 			}
 		} while (true);
 		
-		if (four_winner() == 'W') {
+		if (four_winner() == 'X') {
 			intWon += 1;
 			
-		} else if (four_winner() == 'B') {
+		} else if (four_winner() == 'O') {
 			intLost += 1;
 			
 		}
@@ -289,10 +289,10 @@ bool test_moveNegamax() {
 			}
 		} while (true);
 		
-		if (four_winner() == 'B') {
+		if (four_winner() == 'O') {
 			intWon += 1;
 			
-		} else if (four_winner() == 'W') {
+		} else if (four_winner() == 'X') {
 			intLost += 1;
 			
 		}
