@@ -209,7 +209,7 @@
 				var four_strInput = '';
 				var four_strInputPrevious = '';
 				var four_strBoard = '';
-				var four_strMoves = '';
+				var four_strMoves = [];
 				
 				var four_call = function(strFunction, strParameters) {
 					if (strFunction !== 'four_moves') {
@@ -408,7 +408,7 @@
 								four_strInputPrevious = '';
 								
 								four_call('four_move', {
-									'strIn': strInput
+									'strIn': strInput + '\n'
 								});
 								
 							}
