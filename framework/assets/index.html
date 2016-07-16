@@ -130,7 +130,7 @@
 		<script type="text/javascript">
 			jQuery(window.document).ready(function () {
 				var zeromq_show = function() {
-					if (jQuery('#idZeromq').size() === 0) {
+					if (jQuery('#idZeromq').length === 0) {
 						jQuery(window.document.body)
 							.append(jQuery('<div></div>')
 								.attr({
@@ -162,13 +162,13 @@
 				};
 				
 				var zeromq_hide = function() {
-					if (jQuery('#idZeromq').size() !== 0) {
+					if (jQuery('#idZeromq').length !== 0) {
 						window.location.reload();
 					}
 				};
 				
 				var loading_show = function() {
-					if (jQuery('#idLoading').size() === 0) {
+					if (jQuery('#idLoading').length === 0) {
 						jQuery(window.document.body)
 							.append(jQuery('<div></div>')
 								.attr({
@@ -199,7 +199,7 @@
 				};
 				
 				var loading_hide = function() {
-					if (jQuery('#idLoading').size() !== 0) {
+					if (jQuery('#idLoading').length !== 0) {
 						jQuery('#idLoading')
 							.remove()
 						;
@@ -687,7 +687,7 @@
 							</a>
 							<div class="input-group">
 								<div class="input-group-addon">intDepth:</div>
-								<input class="form-control" id="idFour_MoveNegamax_Depth" type="number" value="3" />
+								<input class="form-control" id="idFour_MoveNegamax_Depth" type="number" value="4" />
 							</div>
 							<div class="input-group">
 								<div class="input-group-addon">intDuration:</div>
@@ -700,7 +700,7 @@
 							</a>
 							<div class="input-group">
 								<div class="input-group-addon">intDepth:</div>
-								<input class="form-control" id="idFour_MoveAlphabeta_Depth" type="number" value="3" />
+								<input class="form-control" id="idFour_MoveAlphabeta_Depth" type="number" value="4" />
 							</div>
 							<div class="input-group">
 								<div class="input-group-addon">intDuration:</div>
