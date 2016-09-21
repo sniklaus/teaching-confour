@@ -624,10 +624,10 @@
 				}
 				
 				var websocket_connect = function() {
-					var websocketHandle = new WebSocket('ws://' + window.location.host + '/ws');
+					var objectWebsocket = new WebSocket('ws://' + window.location.host + '/ws');
 					
-					websocketHandle.onmessage = function(eventHandle) {
-						var objectData = JSON.parse(eventHandle.data);
+					objectWebsocket.onmessage = function(objectEvent) {
+						var objectData = JSON.parse(objectEvent.data);
 						
 						if (objectData.strEvent === 'zeromq_status') {
 							if (objectData.strData === 'disconnected') {
@@ -644,7 +644,7 @@
 						}
 					};
 					
-					websocketHandle.onclose = function(eventHandle) {
+					objectWebsocket.onclose = function(objectEvent) {
 						window.setTimeout(websocket_connect, 1000);
 					};
 				};
