@@ -219,7 +219,7 @@
 					
 					var strUrl = '/' + strFunction;
 					
-					for (strParameter in strParameters) {
+					for (var strParameter in strParameters) {
 						if (strUrl.indexOf('?') === -1) {
 							strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
 							
@@ -427,7 +427,7 @@
 					
 					var strUrl = '/' + strFunction;
 					
-					for (strParameter in strParameters) {
+					for (var strParameter in strParameters) {
 						if (strUrl.indexOf('?') === -1) {
 							strUrl += '?' + strParameter + '=' + encodeURIComponent(strParameters[strParameter]);
 							

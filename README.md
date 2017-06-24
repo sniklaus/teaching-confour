@@ -6,7 +6,7 @@ the repository contains the framework itself, as well as multiple empty clients 
 
 the framework provides a graphical user interface that is accessible through a webbrowser, but does unlike the chess framework not provide any test cases. similarly, the network interoperability of the chess framework has not been converted either.
 
-<p align="center"><img src="http://content.coderect.com/FourRect/Teaching/ScreenshotThumb.png" alt="ScreenshotThumb"></p>
+<p align="center"><img src="http://content.sniklaus.com/FourRect/Teaching/ScreenshotThumb.png" alt="ScreenshotThumb"></p>
 
 ## usage
 while this project implements most of the features of the chess framework, it is only being used for the purpose of demonstrating the applicability of adversary searches. no further explanation is therefore given and it is instead recommended to consult the chess framework.
