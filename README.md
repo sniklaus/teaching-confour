@@ -1,4 +1,4 @@
-# teaching-connectfour
+# teaching-confour
 This project is based on a framework for my advanced artificial intelligence class. In analogy to the referenced framework in which an artificial chess player is ought to be implemented, this project does analogous provide a framework for connect four.
 
 ## overview
