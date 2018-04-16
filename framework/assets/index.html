@@ -5,7 +5,7 @@
 		
 		<meta name="viewport" content="width=1000" />
 		
-		<title>Connect Four</title>
+		<title>confour</title>
 		
 		<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAxlBMVEUAAABOWZ5BTZhCTZhHUpt7g7d5gbZ5grZ5grZ6grZsda9tdq9tdrBtd7Bsdq9ye7Jye7JzfLN0fbNxerJdaKdeaadfaahfaqhha6ldZ6dfaahfaqhjbat/h7mAh7mFjLx8hLh3gLV6grZ6grdfaahgaqlibKpha6ljbapRXKBSXKBUX6JTXqFSXaH///+uuNXEzOHx9Pvb4O+5wtv8/f+zvdi+x97m6vXr7/edqcujrs6/x97V2+vg5fGNmcKXo8jJ0eXQ1ucIdJUyAAAALnRSTlMACR0dI1BRUVJSiIiIiIi8vb29vdbW1tbW4uLi4uzs7Ozs7Ozx8fHx8f39/f39FstVagAAALZJREFUeNptz8cWgkAMBVAYR8Xee1fAnoQBBOz+/0+ZgaVmlXcX7ySG8TumKLV3x6PbsoSZZlkbLq7JlWb9itQiqtMn+vEDIn9cFgzWgBDD8AHB5dazGFqzAHk88PCzbDK45KUZgjuSw3BS4N85A1xQHTRE4PlxCqHaM2yJdyKKAGKydemcQde8AVYdhmKfMsCAugV9WGXCohAVjdLDTFnvremWvDbdssyeEYWmc97bjXzO/PP7F9bvG7XExUxsAAAAAElFTkSuQmCC" />
 		
@@ -44,7 +44,7 @@
 				text-align:justify;
 			}
 
-			.card-body > p:last-child {
+			.card-body > :last-child {
 				margin-bottom:0px;
 			}
 			
@@ -322,28 +322,24 @@
 				
 				{
 					jQuery('#idFour_Reset')
-						.off('click')
 						.on('click', function() {
 							four_call('four_reset', {});
 						})
 					;
 					
 					jQuery('#idFour_MoveRandom')
-						.off('click')
 						.on('click', function() {
 							four_call('four_moveRandom', {});
 						})
 					;
 					
 					jQuery('#idFour_MoveGreedy')
-						.off('click')
 						.on('click', function() {
 							four_call('four_moveGreedy', {});
 						})
 					;
 					
 					jQuery('#idFour_MoveNegamax')
-						.off('click')
 						.on('click', function() {
 							four_call('four_moveNegamax', {
 								'intDepth': jQuery('#idFour_MoveNegamax_Depth').val(),
@@ -353,7 +349,6 @@
 					;
 					
 					jQuery('#idFour_MoveAlphabeta')
-						.off('click')
 						.on('click', function() {
 							four_call('four_moveAlphabeta', {
 								'intDepth': jQuery('#idFour_MoveAlphabeta_Depth').val(),
@@ -363,14 +358,12 @@
 					;
 					
 					jQuery('#idFour_Undo')
-						.off('click')
 						.on('click', function() {
 							four_call('four_undo', {});
 						})
 					;
 					
 					jQuery('#idFour_Board').find('td')
-						.off('click')
 						.on('click', function() {
 							var intX = jQuery(this).index();
 							var intY = jQuery(this).parent().index();
@@ -492,112 +485,96 @@
 				
 				{
 					jQuery('#idTest_Board')
-						.off('click')
 						.on('click', function() {
 							test_call('test_board');
 						})
 					;
 					
 					jQuery('#idTest_Winner')
-						.off('click')
 						.on('click', function() {
 							test_call('test_winner');
 						})
 					;
 					
 					jQuery('#idTest_IsValid')
-						.off('click')
 						.on('click', function() {
 							test_call('test_isValid');
 						})
 					;
 					
 					jQuery('#idTest_IsEnemy')
-						.off('click')
 						.on('click', function() {
 							test_call('test_isEnemy');
 						})
 					;
 					
 					jQuery('#idTest_IsOwn')
-						.off('click')
 						.on('click', function() {
 							test_call('test_isOwn');
 						})
 					;
 					
 					jQuery('#idTest_IsNothing')
-						.off('click')
 						.on('click', function() {
 							test_call('test_isNothing');
 						})
 					;
 					
 					jQuery('#idTest_Eval')
-						.off('click')
 						.on('click', function() {
 							test_call('test_eval');
 						})
 					;
 					
 					jQuery('#idTest_Moves')
-						.off('click')
 						.on('click', function() {
 							test_call('test_moves');
 						})
 					;
 					
 					jQuery('#idTest_Move')
-						.off('click')
 						.on('click', function() {
 							test_call('test_move');
 						})
 					;
 					
 					jQuery('#idTest_Undo')
-						.off('click')
 						.on('click', function() {
 							test_call('test_undo');
 						})
 					;
 					
 					jQuery('#idTest_MovesShuffled')
-						.off('click')
 						.on('click', function() {
 							test_call('test_movesShuffled');
 						})
 					;
 					
 					jQuery('#idTest_MovesEvaluated')
-						.off('click')
 						.on('click', function() {
 							test_call('test_movesEvaluated');
 						})
 					;
 					
 					jQuery('#idTest_MoveRandom')
-						.off('click')
 						.on('click', function() {
 							test_call('test_moveRandom');
 						})
 					;
 					
 					jQuery('#idTest_MoveGreedy')
-						.off('click')
 						.on('click', function() {
 							test_call('test_moveGreedy');
 						})
 					;
 					
 					jQuery('#idTest_MoveNegamax')
-						.off('click')
 						.on('click', function() {
 							test_call('test_moveNegamax');
 						})
 					;
 					
 					jQuery('#idTest_MoveAlphabeta')
-						.off('click')
 						.on('click', function() {
 							test_call('test_moveAlphabeta');
 						})
