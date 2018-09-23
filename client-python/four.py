@@ -122,13 +122,13 @@ def four_moveGreedy():
 	return 'd1\n'
 # end
 
-def four_moveNegamax(intDepth, intDuration):
+def four_moveNegamax(intMaxdepth, intDuration):
 	# perform a negamax move and return it - one example output is given below - note that you can call the the other functions in here
 	
 	return 'd1\n'
 # end
 
-def four_moveAlphabeta(intDepth, intDuration):
+def four_moveAlphabeta(intMaxdepth, intDuration):
 	# perform a alphabeta move and return it - one example output is given below - note that you can call the the other functions in here
 	
 	return 'd1\n'

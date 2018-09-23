@@ -3,25 +3,26 @@ import random
 ##########################################################
 
 main_intZeromq = 25663 # CHANGE THIS - OPTIONAL
-main_strName = "YOUR NAME" # CHANGE THIS - REQUIRED
+
+main_strName = 'YOUR NAME' # CHANGE THIS - REQUIRED
 
 ##########################################################
 
-exec(open("four.py").read())
+exec(open('four.py').read())
 
-exec(open("zeromq.py").read())
+exec(open('zeromq.py').read())
 
 ##########################################################
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 	assert main_intZeromq > 1024
 	assert main_intZeromq < 65535
 	
 	assert len(main_strName) > 2
 	assert len(main_strName) < 16
-	assert main_strName.find(" ") == -1
+	assert main_strName.find(' ') == -1
 	
-	random.seed()
+	random.seed(0)
 	
 	zeromq_start()
 # end

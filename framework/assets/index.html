@@ -342,7 +342,7 @@
 					jQuery('#idFour_MoveNegamax')
 						.on('click', function() {
 							four_call('four_moveNegamax', {
-								'intDepth': jQuery('#idFour_MoveNegamax_Depth').val(),
+								'intMaxdepth': jQuery('#idFour_MoveNegamax_Maxdepth').val(),
 								'intDuration': jQuery('#idFour_MoveNegamax_Duration').val()
 							});
 						})
@@ -351,7 +351,7 @@
 					jQuery('#idFour_MoveAlphabeta')
 						.on('click', function() {
 							four_call('four_moveAlphabeta', {
-								'intDepth': jQuery('#idFour_MoveAlphabeta_Depth').val(),
+								'intMaxdepth': jQuery('#idFour_MoveAlphabeta_Maxdepth').val(),
 								'intDuration': jQuery('#idFour_MoveAlphabeta_Duration').val()
 							});
 						})
@@ -644,8 +644,8 @@
 								<i class="fa fa-car pull-right"></i>
 							</button>
 							<div class="input-group btn-block ml-4 pr-4">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDepth:</span></div>
-								<input class="form-control" id="idFour_MoveNegamax_Depth" type="number" value="4" />
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intMaxdepth:</span></div>
+								<input class="form-control" id="idFour_MoveNegamax_Maxdepth" type="number" value="4" />
 							</div>
 							<div class="input-group btn-block ml-4 pr-4">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDuration:</span></div>
@@ -657,8 +657,8 @@
 								<i class="fa fa-plane pull-right"></i>
 							</button>
 							<div class="input-group btn-block ml-4 pr-4">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDepth:</span></div>
-								<input class="form-control" id="idFour_MoveAlphabeta_Depth" type="number" value="4" />
+								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intMaxdepth:</span></div>
+								<input class="form-control" id="idFour_MoveAlphabeta_Maxdepth" type="number" value="4" />
 							</div>
 							<div class="input-group btn-block ml-4 pr-4">
 								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDuration:</span></div>

@@ -16,8 +16,8 @@ int four_movesEvaluated(char* charOut);
 void four_move(char* charIn);
 void four_moveRandom(char* charOut);
 void four_moveGreedy(char* charOut);
-void four_moveNegamax(char* charOut, int intDepth, int intDuration);
-void four_moveAlphabeta(char* charOut, int intDepth, int intDuration);
+void four_moveNegamax(char* charOut, int intMaxdepth, int intDuration);
+void four_moveAlphabeta(char* charOut, int intMaxdepth, int intDuration);
 void four_undo();
 
 #endif

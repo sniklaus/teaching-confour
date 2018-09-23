@@ -419,7 +419,7 @@ void four_moveGreedy(char* charOut) {
 	}
 }
 
-void four_moveNegamax(char* charOut, int intDepth, int intDuration) {
+void four_moveNegamax(char* charOut, int intMaxdepth, int intDuration) {
 	{
 		cJSON* objectOut = cJSON_CreateObject();
 		cJSON* objectIn = NULL;
@@ -427,7 +427,7 @@ void four_moveNegamax(char* charOut, int intDepth, int intDuration) {
 		{
 			cJSON_AddStringToObject(objectOut, "strFunction", "four_moveNegamax");
 			
-			cJSON_AddNumberToObject(objectOut, "intDepth", intDepth);
+			cJSON_AddNumberToObject(objectOut, "intMaxdepth", intMaxdepth);
 
 			cJSON_AddNumberToObject(objectOut, "intDuration", intDuration);
 		}
@@ -447,7 +447,7 @@ void four_moveNegamax(char* charOut, int intDepth, int intDuration) {
 	}
 }
 
-void four_moveAlphabeta(char* charOut, int intDepth, int intDuration) {
+void four_moveAlphabeta(char* charOut, int intMaxdepth, int intDuration) {
 	{
 		cJSON* objectOut = cJSON_CreateObject();
 		cJSON* objectIn = NULL;
@@ -455,7 +455,7 @@ void four_moveAlphabeta(char* charOut, int intDepth, int intDuration) {
 		{
 			cJSON_AddStringToObject(objectOut, "strFunction", "four_moveAlphabeta");
 			
-			cJSON_AddNumberToObject(objectOut, "intDepth", intDepth);
+			cJSON_AddNumberToObject(objectOut, "intMaxdepth", intMaxdepth);
 
 			cJSON_AddNumberToObject(objectOut, "intDuration", intDuration);
 		}

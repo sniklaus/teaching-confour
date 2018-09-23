@@ -40,49 +40,49 @@ bool test_movesCompare(int intMoves, char* charA, char* charB) {
 	int intA[128] = { };
 	int intB[128] = { };
 	
-	for (int intFor1 = 0; intFor1 < intMoves; intFor1 += 1) {
-		intA[intFor1] = (charA[(intFor1 * 6) + 0] * 1) + (charA[(intFor1 * 6) + 1] * 100) + (charA[(intFor1 * 6) + 3] * 10000) + (charA[(intFor1 * 6) + 4] * 1000000);
-		intB[intFor1] = (charB[(intFor1 * 6) + 0] * 1) + (charB[(intFor1 * 6) + 1] * 100) + (charB[(intFor1 * 6) + 3] * 10000) + (charB[(intFor1 * 6) + 4] * 1000000);
+	for (int intMove = 0; intMove < intMoves; intMove += 1) {
+		intA[intMove] = (charA[(intMove * 6) + 0] * 1) + (charA[(intMove * 6) + 1] * 100) + (charA[(intMove * 6) + 3] * 10000) + (charA[(intMove * 6) + 4] * 1000000);
+		intB[intMove] = (charB[(intMove * 6) + 0] * 1) + (charB[(intMove * 6) + 1] * 100) + (charB[(intMove * 6) + 3] * 10000) + (charB[(intMove * 6) + 4] * 1000000);
 	}
 	
-	for (int intFor1 = 0; intFor1 < intMoves - 1; intFor1 += 1) {
-		int intMin = intFor1;
+	for (int intMove = 0; intMove < intMoves - 1; intMove += 1) {
+		int intMin = intMove;
 		
-		for (int intFor2 = intFor1 + 1; intFor2 < intMoves; intFor2 += 1) {
-			if (intA[intFor2] < intA[intMin]) {
-				intMin = intFor2;
+		for (int intIndex = intMove + 1; intIndex < intMoves; intIndex += 1) {
+			if (intA[intIndex] < intA[intMin]) {
+				intMin = intIndex;
 			}
 		}
 		
-		if (intFor1 == intMin) {
+		if (intMove == intMin) {
 			continue;
 		}
 		
-		int intSwap = intA[intFor1];
-		intA[intFor1] = intA[intMin];
+		int intSwap = intA[intMove];
+		intA[intMove] = intA[intMin];
 		intA[intMin] = intSwap;
 	}
 	
-	for (int intFor1 = 0; intFor1 < intMoves - 1; intFor1 += 1) {
-		int intMin = intFor1;
+	for (int intMove = 0; intMove < intMoves - 1; intMove += 1) {
+		int intMin = intMove;
 		
-		for (int intFor2 = intFor1 + 1; intFor2 < intMoves; intFor2 += 1) {
-			if (intB[intFor2] < intB[intMin]) {
-				intMin = intFor2;
+		for (int intIndex = intMove + 1; intIndex < intMoves; intIndex += 1) {
+			if (intB[intIndex] < intB[intMin]) {
+				intMin = intIndex;
 			}
 		}
 		
-		if (intFor1 == intMin) {
+		if (intMove == intMin) {
 			continue;
 		}
 		
-		int intSwap = intB[intFor1];
-		intB[intFor1] = intB[intMin];
+		int intSwap = intB[intMove];
+		intB[intMove] = intB[intMin];
 		intB[intMin] = intSwap;
 	}
 	
-	for (int intFor1 = 0; intFor1 < intMoves; intFor1 += 1) {
-		if (intA[intFor1] != intB[intFor1]) {
+	for (int intMove = 0; intMove < intMoves; intMove += 1) {
+		if (intA[intMove] != intB[intMove]) {
 			return false;
 		}
 	}
@@ -102,26 +102,26 @@ bool test_undo() {
 	return false;
 }
 
-int test_movesCount(int* intBuffer, char* charBuffer, int intCount) {
-	int intEqual = 0;
+int test_movesSame(int* intBuffer, char* charBuffer, int intCount) {
+	int intSame = 0;
 	
-	for (int intFor1 = 0; intFor1 < intCount; intFor1 += 1) {
-		for (int intFor2 = intFor1 + 1; intFor2 < intCount; intFor2 += 1) {
-			if (intBuffer[intFor1] != intBuffer[intFor2]) {
-				intEqual = intCount;
+	for (int intTrial = 0; intTrial < intCount; intTrial += 1) {
+		for (int intSubsequent = intTrial + 1; intSubsequent < intCount; intSubsequent += 1) {
+			if (intBuffer[intTrial] != intBuffer[intSubsequent]) {
+				intSame = intCount;
 			}
 		}
 	}
 	
-	for (int intFor1 = 0; intFor1 < intCount; intFor1 += 1) {
-		for (int intFor2 = intFor1 + 1; intFor2 < intCount; intFor2 += 1) {
-			if (strcmp(&charBuffer[intFor1 * 1024], &charBuffer[intFor2 * 1024]) == 0) {
-				intEqual += 1;
+	for (int intTrial = 0; intTrial < intCount; intTrial += 1) {
+		for (int intSubsequent = intTrial + 1; intSubsequent < intCount; intSubsequent += 1) {
+			if (strcmp(&charBuffer[intTrial * 1024], &charBuffer[intSubsequent * 1024]) == 0) {
+				intSame += 1;
 			}
 		}
 	}
 	
-	return intEqual;
+	return intSame;
 }
 
 bool test_movesShuffled() {
@@ -131,14 +131,14 @@ bool test_movesShuffled() {
 bool test_movesOrder(int intMoves, char* charMoves) {
 	int intEval[128] = { };
 	
-	for (int intFor1 = 0; intFor1 < intMoves; intFor1 += 1) {
-		four_move(&charMoves[intFor1 * 6]);
-		intEval[intFor1] = four_eval();
+	for (int intMove = 0; intMove < intMoves; intMove += 1) {
+		four_move(&charMoves[intMove * 6]);
+		intEval[intMove] = four_eval();
 		four_undo();
 	}
 	
-	for (int intFor1 = 0; intFor1 < intMoves - 1; intFor1 += 1) {
-		if (intEval[intFor1] > intEval[intFor1 + 1]) {
+	for (int intMove = 0; intMove < intMoves - 1; intMove += 1) {
+		if (intEval[intMove] > intEval[intMove + 1]) {
 			return false;
 		}
 	}
@@ -150,21 +150,21 @@ bool test_movesEvaluated() {
 	return false;
 }
 
-int test_moveCount(char* charBuffer, int intCount) {
-	int intEqual = 0;
+int test_moveSame(char* charBuffer, int intCount) {
+	int intSame = 0;
 	char charEqual[100 * 1024] = { };
 	
-	intEqual = 0;
+	intSame = 0;
 	charEqual[0] = '\0';
 	
-	for (int intFor1 = 0; intFor1 < intCount; intFor1 += 1) {
-		if (strstr(charEqual, &charBuffer[intFor1 * 1024]) == NULL) {
-			intEqual += 1;
-			strcat(charEqual, &charBuffer[intFor1 * 1024]);
+	for (int intTrial = 0; intTrial < intCount; intTrial += 1) {
+		if (strstr(charEqual, &charBuffer[intTrial * 1024]) == NULL) {
+			intSame += 1;
+			strcat(charEqual, &charBuffer[intTrial * 1024]);
 		}
 	}
 	
-	return intEqual;
+	return intSame;
 }
 
 bool test_moveRandom() {
@@ -177,7 +177,7 @@ bool test_moveGreedy() {
 	int intWon = 0;
 	int intLost = 0;
 	
-	for (int intFor1 = 0; intFor1 < 50; intFor1 += 1) {
+	for (int intGame = 0; intGame < 50; intGame += 1) {
 		four_reset();
 		
 		do {
@@ -203,7 +203,7 @@ bool test_moveGreedy() {
 		}
 	}
 	
-	for (int intFor1 = 0; intFor1 < 50; intFor1 += 1) {
+	for (int intGame = 0; intGame < 50; intGame += 1) {
 		four_reset();
 		
 		do {
@@ -246,7 +246,7 @@ bool test_moveNegamax() {
 	int intWon = 0;
 	int intLost = 0;
 	
-	for (int intFor1 = 0; intFor1 < 50; intFor1 += 1) {
+	for (int intGame = 0; intGame < 50; intGame += 1) {
 		four_reset();
 		
 		do {
@@ -272,7 +272,7 @@ bool test_moveNegamax() {
 		}
 	}
 	
-	for (int intFor1 = 0; intFor1 < 50; intFor1 += 1) {
+	for (int intGame = 0; intGame < 50; intGame += 1) {
 		four_reset();
 		
 		do {

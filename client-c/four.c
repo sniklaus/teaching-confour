@@ -133,7 +133,7 @@ void four_moveGreedy(char* charOut) {
 	charOut[3] = '\0';
 }
 
-void four_moveNegamax(char* charOut, int intDepth, int intDuration) {
+void four_moveNegamax(char* charOut, int intMaxdepth, int intDuration) {
 	// perform a negamax move and write the chosen move into the provided argument - one example output is given below - note that you can call the the other functions in here
 	
 	charOut[0] = 'd';
@@ -142,7 +142,7 @@ void four_moveNegamax(char* charOut, int intDepth, int intDuration) {
 	charOut[3] = '\0';
 }
 
-void four_moveAlphabeta(char* charOut, int intDepth, int intDuration) {
+void four_moveAlphabeta(char* charOut, int intMaxdepth, int intDuration) {
 	// perform a alphabeta move and write the chosen move into the provided argument - one example output is given below - note that you can call the the other functions in here
 	
 	charOut[0] = 'd';
