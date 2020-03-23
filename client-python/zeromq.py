@@ -15,86 +15,86 @@ def zeromq_start():
 	
 	zeromq_boolRunning = True
 	
-	objectContext = zmq.Context()
-	objectSocket = objectContext.socket(zmq.PAIR); objectSocket.bind('tcp://*:' + str(main_intZeromq))
+	objContext = zmq.Context()
+	objSocket = objContext.socket(zmq.PAIR); objSocket.bind('tcp://*:' + str(main_intZeromq))
 	
 	while zeromq_boolRunning == True:
-		objectIn = json.loads(objectSocket.recv().decode())
-		objectOut = {}
+		objIn = json.loads(objSocket.recv().decode())
+		objOut = {}
 		
-		if objectIn['strFunction'] == 'ping':
-			objectOut['strOut'] = main_strName
+		if objIn['strFunction'] == 'ping':
+			objOut['strOut'] = main_strName
 			
-		elif objectIn['strFunction'] == 'four_reset':
+		elif objIn['strFunction'] == 'four_reset':
 			four_reset()
 			
-		elif objectIn['strFunction'] == 'four_boardGet':
-			objectOut['strOut'] = four_boardGet()
+		elif objIn['strFunction'] == 'four_boardGet':
+			objOut['strOut'] = four_boardGet()
 			
-		elif objectIn['strFunction'] == 'four_boardSet':
-			four_boardSet(objectIn['strIn'])
+		elif objIn['strFunction'] == 'four_boardSet':
+			four_boardSet(objIn['strIn'])
 			
-		elif objectIn['strFunction'] == 'four_winner':
-			objectOut['strReturn'] = four_winner()
+		elif objIn['strFunction'] == 'four_winner':
+			objOut['strReturn'] = four_winner()
 			
-		elif objectIn['strFunction'] == 'four_isValid':
-			objectOut['boolReturn'] = four_isValid(objectIn['intX'], objectIn['intY'])
+		elif objIn['strFunction'] == 'four_isValid':
+			objOut['boolReturn'] = four_isValid(objIn['intX'], objIn['intY'])
 			
-		elif objectIn['strFunction'] == 'four_isEnemy':
-			objectOut['boolReturn'] = four_isEnemy(objectIn['strPiece'])
+		elif objIn['strFunction'] == 'four_isEnemy':
+			objOut['boolReturn'] = four_isEnemy(objIn['strPiece'])
 			
-		elif objectIn['strFunction'] == 'four_isOwn':
-			objectOut['boolReturn'] = four_isOwn(objectIn['strPiece'])
+		elif objIn['strFunction'] == 'four_isOwn':
+			objOut['boolReturn'] = four_isOwn(objIn['strPiece'])
 			
-		elif objectIn['strFunction'] == 'four_isNothing':
-			objectOut['boolReturn'] = four_isNothing(objectIn['strPiece'])
+		elif objIn['strFunction'] == 'four_isNothing':
+			objOut['boolReturn'] = four_isNothing(objIn['strPiece'])
 			
-		elif objectIn['strFunction'] == 'four_eval':
-			objectOut['intReturn'] = four_eval()
+		elif objIn['strFunction'] == 'four_eval':
+			objOut['intReturn'] = four_eval()
 			
-		elif objectIn['strFunction'] == 'four_moves':
+		elif objIn['strFunction'] == 'four_moves':
 			strOut = four_moves()
 			
-			objectOut['intOut'] = len(strOut)
-			objectOut['strOut'] = str.join('', strOut)
+			objOut['intOut'] = len(strOut)
+			objOut['strOut'] = str.join('', strOut)
 			
-		elif objectIn['strFunction'] == 'four_movesShuffled':
+		elif objIn['strFunction'] == 'four_movesShuffled':
 			strOut = four_movesShuffled()
 			
-			objectOut['intOut'] = len(strOut)
-			objectOut['strOut'] = str.join('', strOut)
+			objOut['intOut'] = len(strOut)
+			objOut['strOut'] = str.join('', strOut)
 			
-		elif objectIn['strFunction'] == 'four_movesEvaluated':
+		elif objIn['strFunction'] == 'four_movesEvaluated':
 			strOut = four_movesEvaluated()
 			
-			objectOut['intOut'] = len(strOut)
-			objectOut['strOut'] = str.join('', strOut)
+			objOut['intOut'] = len(strOut)
+			objOut['strOut'] = str.join('', strOut)
 			
-		elif objectIn['strFunction'] == 'four_move':
-			four_move(objectIn['strIn'])
+		elif objIn['strFunction'] == 'four_move':
+			four_move(objIn['strIn'])
 			
-		elif objectIn['strFunction'] == 'four_moveRandom':
-			objectOut['strOut'] = four_moveRandom()
+		elif objIn['strFunction'] == 'four_moveRandom':
+			objOut['strOut'] = four_moveRandom()
 			
-		elif objectIn['strFunction'] == 'four_moveGreedy':
-			objectOut['strOut'] = four_moveGreedy()
+		elif objIn['strFunction'] == 'four_moveGreedy':
+			objOut['strOut'] = four_moveGreedy()
 			
-		elif objectIn['strFunction'] == 'four_moveNegamax':
-			objectOut['strOut'] = four_moveNegamax(objectIn['intMaxdepth'], objectIn['intDuration'])
+		elif objIn['strFunction'] == 'four_moveNegamax':
+			objOut['strOut'] = four_moveNegamax(objIn['intMaxdepth'], objIn['intDuration'])
 			
-		elif objectIn['strFunction'] == 'four_moveAlphabeta':
-			objectOut['strOut'] = four_moveAlphabeta(objectIn['intMaxdepth'], objectIn['intDuration'])
+		elif objIn['strFunction'] == 'four_moveAlphabeta':
+			objOut['strOut'] = four_moveAlphabeta(objIn['intMaxdepth'], objIn['intDuration'])
 			
-		elif objectIn['strFunction'] == 'four_undo':
+		elif objIn['strFunction'] == 'four_undo':
 			four_undo()
 
 		# end
 		
-		objectSocket.send_string(json.dumps(objectOut))
+		objSocket.send_string(json.dumps(objOut))
 	# end
 
-	objectSocket.close()
-	objectContext.destroy()
+	objSocket.close()
+	objContext.destroy()
 # end
 
 def zeromq_stop():

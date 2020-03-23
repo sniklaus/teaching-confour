@@ -47,7 +47,9 @@
 			.card-body > :last-child {
 				margin-bottom:0px;
 			}
-			
+		</style>
+
+		<style type="text/css">
 			body > table {
 				margin:40px auto 0px auto;
 			}
@@ -217,7 +219,7 @@
 						'type': 'GET',
 						'url': strUrl,
 						'dataType': 'json',
-						'success': function(objectData) {
+						'success': function(objData) {
 							four_call_board();
 							four_call_winner();
 							four_call_eval();
@@ -235,8 +237,8 @@
 						'type': 'GET',
 						'url': '/four_boardGet',
 						'dataType': 'json',
-						'success': function(objectData) {
-							four_strBoard = objectData.strOut.replace(new RegExp('\\.', 'g'), ' ').split('\n');
+						'success': function(objData) {
+							four_strBoard = objData.strOut.replace(new RegExp('\\.', 'g'), ' ').split('\n');
 							
 							jQuery('#idFour_Board_Depth')
 								.text(four_strBoard[0].split(' ')[0])
@@ -263,9 +265,9 @@
 						'type': 'GET',
 						'url': '/four_winner',
 						'dataType': 'json',
-						'success': function(objectData) {
+						'success': function(objData) {
 							jQuery('#idFour_Winner')
-								.text(objectData.strReturn)
+								.text(objData.strReturn)
 							;
 						}
 					});
@@ -277,9 +279,9 @@
 						'type': 'GET',
 						'url': '/four_eval',
 						'dataType': 'json',
-						'success': function(objectData) {
+						'success': function(objData) {
 							jQuery('#idFour_Eval')
-								.text(objectData.intReturn)
+								.text(objData.intReturn)
 							;
 						}
 					});
@@ -291,8 +293,8 @@
 						'type': 'GET',
 						'url': '/four_moves',
 						'dataType': 'json',
-						'success': function(objectData) {
-							four_strMoves = objectData.strOut.split('\n');
+						'success': function(objData) {
+							four_strMoves = objData.strOut.split('\n');
 							
 							jQuery('#idFour_Board').find('td')
 								.css({
@@ -418,15 +420,15 @@
 						'type': 'GET',
 						'url': strUrl,
 						'dataType': 'json',
-						'success': function(objectData) {
-							test_intBench.push(objectData.intBench);
+						'success': function(objData) {
+							test_intBench.push(objData.intBench);
 							
 							jQuery('#idTest_Return_Return')
-								.text(objectData.boolReturn)
+								.text(objData.boolReturn)
 							;
 							
 							jQuery('#idTest_Return_Bench')
-								.text(objectData.intBench.toFixed(3))
+								.text(objData.intBench.toFixed(3))
 							;
 							
 							Plotly.newPlot('idTest_Boxplot', [{
@@ -457,16 +459,16 @@
 								'displayModeBar': false
 							});
 							
-							if (objectData.boolReturn === true) {
-								jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('span')
+							if (objData.boolReturn === true) {
+								jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('i')
 									.removeClass()
 									.addClass('fa')
 									.addClass('fa-check')
 									.addClass('pull-right')
 								;
 								
-							} else if (objectData.boolReturn === false) {
-								jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('span')
+							} else if (objData.boolReturn === false) {
+								jQuery('#idTest_' + strFunction.charAt(5).toUpperCase() + strFunction.substr(6)).find('i')
 									.removeClass()
 									.addClass('fa')
 									.addClass('fa-times')
@@ -582,27 +584,27 @@
 				}
 				
 				var websocket_connect = function() {
-					var objectWebsocket = new WebSocket('ws://' + window.location.host + '/ws');
+					var objWebsocket = new WebSocket('ws://' + window.location.host + '/ws');
 					
-					objectWebsocket.onmessage = function(objectEvent) {
-						var objectData = JSON.parse(objectEvent.data);
+					objWebsocket.onmessage = function(objEvent) {
+						var objData = JSON.parse(objEvent.data);
 						
-						if (objectData.strEvent === 'zeromq_status') {
-							if (objectData.strData === 'disconnected') {
+						if (objData.strEvent === 'zeromq_status') {
+							if (objData.strData === 'disconnected') {
 								zeromq_show();
 								
-							} else if (objectData.strData === 'connected') {
+							} else if (objData.strData === 'connected') {
 								zeromq_hide();
 								
 							}
 							
-						} else if (objectData.strEvent === 'zeromq_name') {
+						} else if (objData.strEvent === 'zeromq_name') {
 							// ...
 							
 						}
 					};
 					
-					objectWebsocket.onclose = function(objectEvent) {
+					objWebsocket.onclose = function(objEvent) {
 						window.setTimeout(websocket_connect, 1000);
 					};
 				};

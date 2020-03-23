@@ -2,67 +2,67 @@
 
 void four_reset() {
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_reset");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_reset");
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 }
 
 void four_boardGet(char* charOut) {
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_boardGet");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_boardGet");
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 }
 
 void four_boardSet(char* charIn) {
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_boardSet");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_boardSet");
 
-			cJSON_AddStringToObject(objectOut, "strIn", charIn);
+			cJSON_AddStringToObject(objOut, "strIn", charIn);
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 }
 
@@ -70,25 +70,25 @@ char four_winner() {
 	char charReturn = '?';
 	
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_winner");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_winner");
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			charReturn = cJSON_GetObjectItem(objectIn, "strReturn")->valuestring[0];
+			charReturn = cJSON_GetObjectItem(objIn, "strReturn")->valuestring[0];
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 	
 	return charReturn;
@@ -98,29 +98,29 @@ bool four_isValid(int intX, int intY) {
 	bool boolReturn = false;
 	
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_isValid");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_isValid");
 			
-			cJSON_AddNumberToObject(objectOut, "intX", intX);
+			cJSON_AddNumberToObject(objOut, "intX", intX);
 
-			cJSON_AddNumberToObject(objectOut, "intY", intY);
+			cJSON_AddNumberToObject(objOut, "intY", intY);
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			boolReturn = cJSON_GetObjectItem(objectIn, "boolReturn")->valueint;
+			boolReturn = cJSON_GetObjectItem(objIn, "boolReturn")->valueint;
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 	
 	return boolReturn;
@@ -130,32 +130,32 @@ bool four_isEnemy(char charPiece) {
 	bool boolReturn = false;
 	
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_isEnemy");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_isEnemy");
 			
 			char charPieceWrapped[16] = { };
 			
 			charPieceWrapped[0] = charPiece;
 			charPieceWrapped[1] = '\0';
 			
-			cJSON_AddStringToObject(objectOut, "strPiece", charPieceWrapped);
+			cJSON_AddStringToObject(objOut, "strPiece", charPieceWrapped);
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			boolReturn = cJSON_GetObjectItem(objectIn, "boolReturn")->valueint;
+			boolReturn = cJSON_GetObjectItem(objIn, "boolReturn")->valueint;
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 	
 	return boolReturn;
@@ -165,32 +165,32 @@ bool four_isOwn(char charPiece) {
 	bool boolReturn = false;
 	
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_isOwn");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_isOwn");
 			
 			char charPieceWrapped[16] = { };
 			
 			charPieceWrapped[0] = charPiece;
 			charPieceWrapped[1] = '\0';
 			
-			cJSON_AddStringToObject(objectOut, "strPiece", charPieceWrapped);
+			cJSON_AddStringToObject(objOut, "strPiece", charPieceWrapped);
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			boolReturn = cJSON_GetObjectItem(objectIn, "boolReturn")->valueint;
+			boolReturn = cJSON_GetObjectItem(objIn, "boolReturn")->valueint;
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 	
 	return boolReturn;
@@ -200,32 +200,32 @@ bool four_isNothing(char charPiece) {
 	bool boolReturn = false;
 	
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_isNothing");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_isNothing");
 			
 			char charPieceWrapped[16] = { };
 			
 			charPieceWrapped[0] = charPiece;
 			charPieceWrapped[1] = '\0';
 			
-			cJSON_AddStringToObject(objectOut, "strPiece", charPieceWrapped);
+			cJSON_AddStringToObject(objOut, "strPiece", charPieceWrapped);
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			boolReturn = cJSON_GetObjectItem(objectIn, "boolReturn")->valueint;
+			boolReturn = cJSON_GetObjectItem(objIn, "boolReturn")->valueint;
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 	
 	return boolReturn;
@@ -235,25 +235,25 @@ int four_eval() {
 	int intReturn = 0;
 	
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_eval");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_eval");
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			intReturn = cJSON_GetObjectItem(objectIn, "intReturn")->valueint;
+			intReturn = cJSON_GetObjectItem(objIn, "intReturn")->valueint;
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 	
 	return intReturn;
@@ -263,27 +263,27 @@ int four_moves(char* charOut) {
 	int intReturn = 0;
 
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_moves");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_moves");
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			intReturn = cJSON_GetObjectItem(objectIn, "intOut")->valueint;
+			intReturn = cJSON_GetObjectItem(objIn, "intOut")->valueint;
 			
-			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 
 	return intReturn;
@@ -293,27 +293,27 @@ int four_movesShuffled(char* charOut) {
 	int intReturn = 0;
 
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_movesShuffled");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_movesShuffled");
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			intReturn = cJSON_GetObjectItem(objectIn, "intOut")->valueint;
+			intReturn = cJSON_GetObjectItem(objIn, "intOut")->valueint;
 			
-			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 
 	return intReturn;
@@ -323,27 +323,27 @@ int four_movesEvaluated(char* charOut) {
 	int intReturn = 0;
 
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_movesEvaluated");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_movesEvaluated");
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			intReturn = cJSON_GetObjectItem(objectIn, "intOut")->valueint;
+			intReturn = cJSON_GetObjectItem(objIn, "intOut")->valueint;
 			
-			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 
 	return intReturn;
@@ -351,146 +351,146 @@ int four_movesEvaluated(char* charOut) {
 
 void four_move(char* charIn) {
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_move");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_move");
 
-			cJSON_AddStringToObject(objectOut, "strIn", charIn);
+			cJSON_AddStringToObject(objOut, "strIn", charIn);
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 }
 
 void four_moveRandom(char* charOut) {
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_moveRandom");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_moveRandom");
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 }
 
 void four_moveGreedy(char* charOut) {
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_moveGreedy");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_moveGreedy");
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 }
 
 void four_moveNegamax(char* charOut, int intMaxdepth, int intDuration) {
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_moveNegamax");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_moveNegamax");
 			
-			cJSON_AddNumberToObject(objectOut, "intMaxdepth", intMaxdepth);
+			cJSON_AddNumberToObject(objOut, "intMaxdepth", intMaxdepth);
 
-			cJSON_AddNumberToObject(objectOut, "intDuration", intDuration);
+			cJSON_AddNumberToObject(objOut, "intDuration", intDuration);
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 }
 
 void four_moveAlphabeta(char* charOut, int intMaxdepth, int intDuration) {
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_moveAlphabeta");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_moveAlphabeta");
 			
-			cJSON_AddNumberToObject(objectOut, "intMaxdepth", intMaxdepth);
+			cJSON_AddNumberToObject(objOut, "intMaxdepth", intMaxdepth);
 
-			cJSON_AddNumberToObject(objectOut, "intDuration", intDuration);
+			cJSON_AddNumberToObject(objOut, "intDuration", intDuration);
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
 		{
-			strcpy(charOut, cJSON_GetObjectItem(objectIn, "strOut")->valuestring);
+			strcpy(charOut, cJSON_GetObjectItem(objIn, "strOut")->valuestring);
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 }
 
 void four_undo() {
 	{
-		cJSON* objectOut = cJSON_CreateObject();
-		cJSON* objectIn = NULL;
+		cJSON* objOut = cJSON_CreateObject();
+		cJSON* objIn = NULL;
 		
 		{
-			cJSON_AddStringToObject(objectOut, "strFunction", "four_undo");
+			cJSON_AddStringToObject(objOut, "strFunction", "four_undo");
 		}
 		
 		{
-			zeromq_send(objectOut);
+			zeromq_send(objOut);
 			
-			objectIn = zeromq_recv();
+			objIn = zeromq_recv();
 		}
 		
-		cJSON_Delete(objectOut);
-		cJSON_Delete(objectIn);
+		cJSON_Delete(objOut);
+		cJSON_Delete(objIn);
 	}
 }

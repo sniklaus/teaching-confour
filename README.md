@@ -6,7 +6,7 @@ The repository contains the framework itself, as well as multiple empty clients 
 
 The framework provides a graphical user interface that is accessible through a webbrowser. However, it does, unlike the chess framework, not provide any test cases. Similarly, the network interoperability of the chess framework has not been converted either.
 
-<p align="center"><img src="http://content.sniklaus.com/FourRect/Teaching/ScreenshotThumb.png" alt="ScreenshotThumb"></p>
+<p align="center"><img src="http://content.sniklaus.com/confour/screenshot.png" alt="Screenshot"></p>
 
 ## usage
 While this project implements most of the features of the chess framework, it is only being used for the purpose of demonstrating the applicability of adversary searches. No further explanation is therefore given and it is instead recommended to consult the chess framework.

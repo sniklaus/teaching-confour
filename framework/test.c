@@ -102,7 +102,7 @@ bool test_undo() {
 	return false;
 }
 
-int test_movesSame(int* intBuffer, char* charBuffer, int intCount) {
+int test_moveSame(int* intBuffer, char* charBuffer, int intCount) {
 	int intSame = 0;
 	
 	for (int intTrial = 0; intTrial < intCount; intTrial += 1) {
@@ -150,7 +150,7 @@ bool test_movesEvaluated() {
 	return false;
 }
 
-int test_moveSame(char* charBuffer, int intCount) {
+int test_moveCount(char* charBuffer, int intCount) {
 	int intSame = 0;
 	char charEqual[100 * 1024] = { };
 	
