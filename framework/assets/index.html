@@ -15,9 +15,9 @@
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.58.4/plotly-cartesian.min.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" />
 
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
 		<style type="text/css">
 			#idFour > div.card-body > table > tbody > tr > td:nth-child(3) > table > tbody > tr > td {
@@ -551,49 +551,49 @@
 			<div class="card-body">
 				<table>
 					<tr style="vertical-align:top;">
-						<td style="width:270px;">
-							<button class="btn btn-primary btn-block text-left" id="idFour_Reset">
+						<td class="d-grid gap-2" style="width:270px;">
+							<button class="btn btn-primary text-start" id="idFour_Reset">
 								four_reset();
 								<i class="fa fa-repeat" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idFour_MoveRandom">
+							<button class="btn btn-primary text-start" id="idFour_MoveRandom">
 								four_moveRandom();
 								<i class="fa fa-random" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idFour_MoveGreedy">
+							<button class="btn btn-primary text-start" id="idFour_MoveGreedy">
 								four_moveGreedy();
 								<i class="fa fa-bicycle" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idFour_MoveNegamax">
+							<button class="btn btn-primary text-start" id="idFour_MoveNegamax">
 								four_moveNegamax(int);
 								<i class="fa fa-car" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
-							<div class="input-group btn-block ml-4 pr-4">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intMaxdepth:</span></div>
+							<div class="input-group ms-4 pe-4">
+								<span class="input-group-text text-end" style="display:block; width:110px;">intMaxdepth:</span>
 								<input class="form-control" id="idFour_MoveNegamax_Maxdepth" type="number" value="4" />
 							</div>
-							<div class="input-group btn-block ml-4 pr-4">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDuration:</span></div>
+							<div class="input-group ms-4 pe-4">
+								<span class="input-group-text text-end" style="display:block; width:110px;">intDuration:</span>
 								<input class="form-control" id="idFour_MoveNegamax_Duration" type="number" value="3000" />
 							</div>
 							
-							<button class="btn btn-primary btn-block text-left" id="idFour_MoveAlphabeta">
+							<button class="btn btn-primary text-start" id="idFour_MoveAlphabeta">
 								four_moveAlphabeta(int, int);
 								<i class="fa fa-plane" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
-							<div class="input-group btn-block ml-4 pr-4">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intMaxdepth:</span></div>
+							<div class="input-group ms-4 pe-4">
+								<span class="input-group-text text-end" style="display:block; width:110px;">intMaxdepth:</span>
 								<input class="form-control" id="idFour_MoveAlphabeta_Maxdepth" type="number" value="4" />
 							</div>
-							<div class="input-group btn-block ml-4 pr-4">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDuration:</span></div>
+							<div class="input-group ms-4 pe-4">
+								<span class="input-group-text text-end" style="display:block; width:110px;">intDuration:</span>
 								<input class="form-control" id="idFour_MoveAlphabeta_Duration" type="number" value="3000" />
 							</div>
 							
-							<button class="btn btn-primary btn-block text-left" id="idFour_Undo">
+							<button class="btn btn-primary text-start" id="idFour_Undo">
 								four_undo();
 								<i class="fa fa-undo" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
@@ -601,24 +601,24 @@
 						<td>
 							<div style="background-color:#CCCCCC; height:452px; margin:0px 15px 0px 15px; width:1px;"></div>
 						</td>
-						<td style="width:270px;">
-							<div class="input-group btn-block">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intDepth:</span></div>
+						<td class="d-grid gap-2" style="width:270px;">
+							<div class="input-group">
+								<span class="input-group-text text-end" style="display:block; width:110px;">intDepth:</span>
 								<div class="form-control" id="idFour_Board_Depth"></div>
 							</div>
 							
-							<div class="input-group btn-block">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">strNext:</span></div>
+							<div class="input-group">
+								<span class="input-group-text text-end" style="display:block; width:110px;">strNext:</span>
 								<div class="form-control" id="idFour_Board_Next"></div>
 							</div>
 							
-							<div class="input-group btn-block">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">strWinner:</span></div>
+							<div class="input-group">
+								<span class="input-group-text text-end" style="display:block; width:110px;">strWinner:</span>
 								<div class="form-control" id="idFour_Winner"></div>
 							</div>
 							
-							<div class="input-group btn-block">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intEval:</span></div>
+							<div class="input-group">
+								<span class="input-group-text text-end" style="display:block; width:110px;">intEval:</span>
 								<div class="form-control" id="idFour_Eval"></div>
 							</div>
 							
@@ -645,83 +645,83 @@
 			<div class="card-body">
 				<table>
 					<tr style="vertical-align:top;">
-						<td style="width:270px;">
-							<button class="btn btn-primary btn-block text-left" id="idTest_Board">
+						<td class="d-grid gap-2" style="width:270px;">
+							<button class="btn btn-primary text-start" id="idTest_Board">
 								test_board();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_Winner">
+							<button class="btn btn-primary text-start" id="idTest_Winner">
 								test_winner();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_IsValid">
+							<button class="btn btn-primary text-start" id="idTest_IsValid">
 								test_isValid();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_IsEnemy">
+							<button class="btn btn-primary text-start" id="idTest_IsEnemy">
 								test_isEnemy();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_IsOwn">
+							<button class="btn btn-primary text-start" id="idTest_IsOwn">
 								test_isOwn();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_IsNothing">
+							<button class="btn btn-primary text-start" id="idTest_IsNothing">
 								test_isNothing();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_Eval">
+							<button class="btn btn-primary text-start" id="idTest_Eval">
 								test_eval();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_Moves">
+							<button class="btn btn-primary text-start" id="idTest_Moves">
 								test_moves();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_Move">
+							<button class="btn btn-primary text-start" id="idTest_Move">
 								test_move();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_Undo">
+							<button class="btn btn-primary text-start" id="idTest_Undo">
 								test_undo();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_MovesShuffled">
+							<button class="btn btn-primary text-start" id="idTest_MovesShuffled">
 								test_movesShuffled();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_MovesEvaluated">
+							<button class="btn btn-primary text-start" id="idTest_MovesEvaluated">
 								test_movesEvaluated();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_MoveRandom">
+							<button class="btn btn-primary text-start" id="idTest_MoveRandom">
 								test_moveRandom();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_MoveGreedy">
+							<button class="btn btn-primary text-start" id="idTest_MoveGreedy">
 								test_moveGreedy();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_MoveNegamax">
+							<button class="btn btn-primary text-start" id="idTest_MoveNegamax">
 								test_moveNegamax();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
 							
-							<button class="btn btn-primary btn-block text-left" id="idTest_MoveAlphabeta">
+							<button class="btn btn-primary text-start" id="idTest_MoveAlphabeta">
 								test_moveAlphabeta();
 								<i class="fa fa-question" style="float:right; margin:4px -3px 0px 0px;"></i>
 							</button>
@@ -729,14 +729,14 @@
 						<td>
 							<div style="background-color:#CCCCCC; height:728px; margin:0px 15px 0px 15px; width:1px;"></div>
 						</td>
-						<td style="width:270px;">
-							<div class="input-group btn-block">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">boolReturn:</span></div>
+						<td class="d-grid gap-2" style="width:270px;">
+							<div class="input-group">
+								<span class="input-group-text text-end" style="display:block; width:110px;">boolReturn:</span>
 								<div class="form-control" id="idTest_Return_Return"></div>
 							</div>
 							
-							<div class="input-group btn-block">
-								<div class="input-group-prepend"><span class="input-group-text text-right" style="display:block; width:110px;">intBench:</span></div>
+							<div class="input-group">
+								<span class="input-group-text text-end" style="display:block; width:110px;">intBench:</span>
 								<div class="form-control" id="idTest_Return_Bench"></div>
 							</div>
 							
