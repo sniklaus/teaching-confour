@@ -56,19 +56,19 @@ def zeromq_start():
             strOut = four_moves()
             
             objOut['intOut'] = len(strOut)
-            objOut['strOut'] = str.join('', strOut)
+            objOut['strOut'] = str().join(strOut)
             
         elif objIn['strFunction'] == 'four_movesShuffled':
             strOut = four_movesShuffled()
             
             objOut['intOut'] = len(strOut)
-            objOut['strOut'] = str.join('', strOut)
+            objOut['strOut'] = str().join(strOut)
             
         elif objIn['strFunction'] == 'four_movesEvaluated':
             strOut = four_movesEvaluated()
             
             objOut['intOut'] = len(strOut)
-            objOut['strOut'] = str.join('', strOut)
+            objOut['strOut'] = str().join(strOut)
             
         elif objIn['strFunction'] == 'four_move':
             four_move(objIn['strIn'])
